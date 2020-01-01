@@ -6,6 +6,9 @@ pipeline {
     }
 
   }
+  parameters {
+        booleanParam(defaultValue: true, description: '', name: 'userFlag')
+  }
   stages {
     stage('Download Files') {
       environment {
