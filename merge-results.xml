@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<!DOCTYPE table PUBLIC "+//IDN sosy-lab.org//DTD BenchExec table 1.10//EN" "https://www.sosy-lab.org/benchexec/table-1.10.dtd">
+<table>
+
+  <result>
+    <!-- <column> can be used here to override the global set of columns.  -->
+    <column title="status"/>
+    <column title="cputime" displayTitle="CPU Time"/>
+    <column title="memory" displayTitle="Memory" sourceUnit="B" displayUnit="MB"/>
+  </result>
+
+  <union>
+    <result filename="./MemSafety-Other/output-tool.logtool-*.xml"/>
+    <result filename="./MemSafety-MemCleanup/output-tool.logtool-*.xml"/>
+  </union>
+</table>

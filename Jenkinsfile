@@ -50,7 +50,17 @@ pipeline {
         https_proxy = 'http://10.99.101.14:3128'
       }
        steps{
-          sh "ls"
+          sh "bash merge-results.sh"
+          zip(zipFile: 'benchexec.zip', archive: true, dir: './results')
+          publishHTML([
+                    allowMissing: false,
+                    alwaysLinkToLastBuild: false,
+                    keepAll: true,
+                    reportDir: 'results',
+                    reportFiles: 'merge*.html',
+                    reportName: "HTML Reports"
+                  ])
+        }
       }
     }
   }
