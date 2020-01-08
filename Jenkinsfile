@@ -37,14 +37,14 @@ pipeline {
               def job_name = high_res.contains(category) ? "benchexec-jenkins-job/high-res" : "benchexec-jenkins-job/low-res"
               println "running ${category} in ${job_name}"
               parallelJobs[category] = {           
-                def built = build job: 'benchexec-jenkins-job/low-res', parameters: [
+                def built = build job: "${job_name}", parameters: [
                   string(name: 'tool_url', value: "${params.tool_url}"),
                   string(name: 'benchmark_url', value: "${params.benchmark_url}"),
                   string(name: 'prepare_environment_url', value: "${params.prepare_environment_url}"),
                   string(name: 'timeout', value: "${params.timeout}"),
                   string(name: 'category', value: "${category}")          
                 ]
-                copyArtifacts(projectName: 'benchexec-jenkins-job/low-res', selector: specific("${built.number}"));
+                copyArtifacts(projectName: "${job_name}", selector: specific("${built.number}"));
               }
             }
 
