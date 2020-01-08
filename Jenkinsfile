@@ -18,7 +18,7 @@ pipeline {
         http_proxy = 'http://10.99.101.14:3128'
         https_proxy = 'http://10.99.101.14:3128'
       }
-      steps {   
+       
         String[] categories = ["MemorySafety-Other, MemorySafety-MemCleanup"]
         def stepsForParallel = [:]
         def buildResults = [:]
@@ -38,7 +38,7 @@ pipeline {
 
         parallel stepsForParallel
         
-	    }
+	  
     }    
   }
 }
