@@ -21,8 +21,8 @@ pipeline {
       }
       steps {   
         sh 'wget $tool_url'
-        sh 'wget $benchmark_url -o tool-def.xml'
-        sh 'wget $prepare_environment_url -o prepare_environment.sh'
+        sh 'wget $benchmark_url -O tool-def.xml'
+        sh 'wget $prepare_environment_url -O prepare_environment.sh'
         sh 'chmod +x prepare_environment.sh && ./prepare_environment.sh'     
 	    }
     }
