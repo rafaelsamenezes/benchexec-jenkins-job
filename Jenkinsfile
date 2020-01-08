@@ -21,12 +21,13 @@ pipeline {
        steps{
           script{
             String[] categories = ["MemSafety-Other", "MemSafety-MemCleanup"]
-            Integer[] jobs = [1,2,3]
+            String[] jobs_number = ["1","2","3"]
             def parallelJobs = [:]
             def buildResults = [:]
             for (int i = 0; i < categories.size(); i++) {
               def category = categories[i]
               println "running ${category}"
+              def jobNumberOuter = 0
               parallelJobs[category] = {           
                 def job_result = build job: 'benchexec-jenkins-job/low-res', parameters: [
                   string(name: 'tool_url', value: "${params.tool_url}"),
@@ -36,12 +37,13 @@ pipeline {
                   string(name: 'category', value: "${category}")          
                 ]
                 echo "Job number ${job_result.getNumber()}"
-                jobs[i] = job_result.getNumber()
+                jobs_number[i] = "${job_result.getNumber()}"
+                println jobs_number
               }
             }
 
             parallel parallelJobs  
-            println parallelJobs
+            println jobs_number
          }
       }
     }
