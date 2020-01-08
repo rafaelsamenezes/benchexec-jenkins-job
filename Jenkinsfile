@@ -23,7 +23,7 @@ pipeline {
         sh 'wget $tool_url'
         sh 'wget $benchmark_url -O tool-def.xml'
         sh 'wget $prepare_environment_url -O prepare_environment.sh'
-        sh 'chmod +x prepare_environment.sh && ./prepare_environment.sh'     
+        sh 'bash prepare_environment.sh'     
 	    }
     }
     stage('Execute benchexec') {
