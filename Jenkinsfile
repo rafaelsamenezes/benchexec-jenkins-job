@@ -1,7 +1,7 @@
 pipeline {
   agent {
     kubernetes {
-      label 'jnlp-benchexec-low'
+      label 'jnlp-benchexec-high'
       defaultContainer 'jnlp'
     }
 
@@ -29,7 +29,7 @@ pipeline {
     stage('Execute benchexec') {
       steps {
         sh 'free -h'
-        sh 'sudo benchexec  ./tool-def.xml --timelimit $timeout --tasks $category --limitCores 2 --numOfThreads 4  --no-container --output output-tool.log'
+        sh 'sudo benchexec  ./tool-def.xml --timelimit $timeout --tasks $category --limitCores 2 --numOfThreads 9  --no-container --output output-tool.log'
       }
     }
     stage('Generate results') {
