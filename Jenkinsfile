@@ -36,7 +36,9 @@ pipeline {
               }
             }
 
-            parallel buildResults        
+            parallel buildResults  
+
+            buildResults[0].dump()      
          }
       }
     }
