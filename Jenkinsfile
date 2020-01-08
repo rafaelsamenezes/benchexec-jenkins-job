@@ -41,12 +41,8 @@ pipeline {
             }
 
             parallel parallelJobs  
-            
-            def rootFiles = new File(".").listRoots()
-            rootFiles.each { file ->
-              println file.absolutePath 
-            }
          }
+         sh 'ls'
       }
     }
   }
