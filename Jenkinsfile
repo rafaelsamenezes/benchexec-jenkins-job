@@ -20,7 +20,7 @@ pipeline {
       }
        steps{
           script{
-            String[] categories = ["MemorySafety-Other, MemorySafety-MemCleanup"]
+            String[] categories = ["MemorySafety-Other", "MemorySafety-MemCleanup"]
             def buildResults = [:]
             for (int i = 0; i < categories.size(); i++) {
               def category = categories[i]
@@ -36,7 +36,7 @@ pipeline {
               }
             }
 
-            parallel stepsForParallel        
+            parallel buildResults        
          }
       }
     }
