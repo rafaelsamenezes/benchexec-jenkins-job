@@ -60,7 +60,6 @@ pipeline {
                     reportFiles: 'merge*.html',
                     reportName: "HTML Reports"
                   ])
-        }
       }
     }
   }
