@@ -29,21 +29,23 @@ pipeline {
               println "running ${category}"
               def jobNumberOuter = 0
               parallelJobs[category] = {           
-                def job_result = build job: 'benchexec-jenkins-job/low-res', parameters: [
+                def built = build job: 'benchexec-jenkins-job/low-res', parameters: [
                   string(name: 'tool_url', value: "${params.tool_url}"),
                   string(name: 'benchmark_url', value: "${params.benchmark_url}"),
                   string(name: 'prepare_environment_url', value: "${params.prepare_environment_url}"),
                   string(name: 'timeout', value: "${params.timeout}"),
                   string(name: 'category', value: "${category}")          
                 ]
-                echo "Job number ${job_result.getNumber()}"
-                jobs_number[i] = "${job_result.getNumber()}"
-                println jobs_number
+                copyArtifacts(projectName: 'benchexec-jenkins-job/low-res', selector: specific("${built.number}"));
               }
             }
 
             parallel parallelJobs  
-            println jobs_number
+            
+            def rootFiles = new File(".").listRoots()
+            rootFiles.each { file ->
+              println file.absolutePath 
+            }
          }
       }
     }
