@@ -20,9 +20,18 @@ pipeline {
       }
        steps{
           script{
-            String[] categories = ["MemSafety-Other", "MemSafety-MemCleanup"]
+            String[] categories = [
+              "ReachSafety-Arrays", "ReachSafety-BitVectors", "ReachSafety-ControlFlow", 
+              "ReachSafety-Floats", "ReachSafety-Heap", "ReachSafety-Loops", "ReachSafety-ProductLines",
+              "ReachSafety-Recursive", "ConcurrencySafety-Main", "MemSafety-Arrays", 
+              "MemSafety-Heap", "MemSafety-LinkedLists", "MemSafety-Other", "MemSafety-MemCleanup", 
+              "SoftwareSystems-BusyBox-MemSafety", "SoftwareSystems-OpenBSD-MemSafety", "NoOverflows-BitVectors",
+              "NoOverflows-Other", "SoftwareSystems-BusyBox-NoOverflows", "Termination-MainControlFlow", 
+              "Termination-MainHeap", "Termination-Other", "ReachSafety-ECA", "ReachSafety-Sequentialized",
+              "SoftwareSystems-AWS-C-Common-ReachSafety", "SoftwareSystems-DeviceDriversLinux64-ReachSafety",
+              "MemSafety-TerminCrafted"
+            ]
             String[] high_res = [
-              "MemSafety-MemCleanup",
               "ReachSafety-ECA",
               "ReachSafety-Sequentialized",
               "SoftwareSystems-AWS-C-Common-ReachSafety",
