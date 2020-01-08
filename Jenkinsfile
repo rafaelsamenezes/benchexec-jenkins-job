@@ -7,11 +7,11 @@ pipeline {
 
   }
   parameters {
-    string(name: 'tool_url', defaultValue: 'http://tool.zip', description: 'Download link for the tool')
-    string(name: 'benchmark_url', defaultValue: 'http://tool.xml', description: 'Download link for benchmark (will be name tool-def.xml')
-	  string(name: 'prepare_environment_url', defaultValue: 'http://script.sh', description: 'Commands to be executed before running benchexec')
+    string(name: 'tool_url', defaultValue: 'https://gitlab.com/sosy-lab/sv-comp/archives-2020/raw/master/2020/esbmc.zip', description: 'Download link for the tool')
+    string(name: 'benchmark_url', defaultValue: 'https://raw.githubusercontent.com/rafaelsamenezes/competition-definitions/master/esbmc-def.xml', description: 'Download link for benchmark (will be name tool-def.xml')
+	  string(name: 'prepare_environment_url', defaultValue: 'https://pastebin.com/raw/AidKFUx9', description: 'Commands to be executed before running benchexec')
     string(name: 'category', defaultValue: 'Memsafety-Other', description: 'Category to be executed')
-	  string(name: 'timeout', defaultValue: '60', description: 'Timeout to be used (in seconds)')
+	  string(name: 'timeout', defaultValue: '30', description: 'Timeout to be used (in seconds)')
   }
   stages {
     stage('Download Files') {
@@ -42,7 +42,7 @@ pipeline {
           sh 'unzip output*.zip'
         }
 
-        zip(zipFile: 'benchexec-${category}.zip', archive: true, dir: './results')
+        zip(zipFile: "benchexec-${params.category}.zip", archive: true, dir: './results')
         publishHTML([
                     allowMissing: false,
                     alwaysLinkToLastBuild: false,
