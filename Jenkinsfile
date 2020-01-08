@@ -44,7 +44,7 @@ pipeline {
          }
       }
     }
-    stage('Start Jobs') {
+    stage('Merge Results') {
       environment {
         http_proxy = 'http://10.99.101.14:3128'
         https_proxy = 'http://10.99.101.14:3128'
