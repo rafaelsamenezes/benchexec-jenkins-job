@@ -21,13 +21,21 @@ pipeline {
        steps{
           script{
             String[] categories = ["MemSafety-Other", "MemSafety-MemCleanup"]
-            String[] jobs_number = ["1","2","3"]
+            String[] high_res = [
+              "MemSafety-MemCleanup",
+              "ReachSafety-ECA",
+              "ReachSafety-Sequentialized",
+              "SoftwareSystems-AWS-C-Common-ReachSafety",
+              "SoftwareSystems-DeviceDriversLinux64-ReachSafety",
+              "MemSafety-TerminCrafted"
+            ]
+
             def parallelJobs = [:]
-            def buildResults = [:]
-            for (int i = 0; i < categories.size(); i++) {
+            int i = 0
+            for (; i < categories.size(); i++) {
               def category = categories[i]
-              println "running ${category}"
-              def jobNumberOuter = 0
+              def job_name = high_res.contains(category) ? "benchexec-jenkins-job/high-res" : "benchexec-jenkins-job/low-res"
+              println "running ${category} in ${job_name}"
               parallelJobs[category] = {           
                 def built = build job: 'benchexec-jenkins-job/low-res', parameters: [
                   string(name: 'tool_url', value: "${params.tool_url}"),
