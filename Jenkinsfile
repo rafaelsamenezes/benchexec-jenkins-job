@@ -19,27 +19,26 @@ pipeline {
         https_proxy = 'http://10.99.101.14:3128'
       }
        steps{
-         script{
-        String[] categories = ["MemorySafety-Other, MemorySafety-MemCleanup"]
-        def stepsForParallel = [:]
-        def buildResults = [:]
-        for (int i = 0; i < categories.size(); i++) {
-          def category = categories[i]
-          def stepName = "running ${category}"
-          stepsForParallel[stepName] = { ->           
-            buildResults[i] = build job: 'benchexec-jenkins-job/low-res', parameters: [
-              string(name: 'tool_url', value: "${params.tool_url}"),
-              string(name: 'benchmark_url', value: "${params.benchmark_url}"),
-              string(name: 'prepare_environment_url', value: "${params.prepare_environment_url}"),
-              string(name: 'timeout', value: "${params.timeout}"),
-              string(name: 'category', value: "${category}")          
-            ]
-          }
-        }
+          script{
+            String[] categories = ["MemorySafety-Other, MemorySafety-MemCleanup"]
+            def buildResults = [:]
+            for (int i = 0; i < categories.size(); i++) {
+              def category = categories[i]
+              println "running ${category}"
+              buildResults[category] = {           
+                build job: 'benchexec-jenkins-job/low-res', parameters: [
+                  string(name: 'tool_url', value: "${params.tool_url}"),
+                  string(name: 'benchmark_url', value: "${params.benchmark_url}"),
+                  string(name: 'prepare_environment_url', value: "${params.prepare_environment_url}"),
+                  string(name: 'timeout', value: "${params.timeout}"),
+                  string(name: 'category', value: "${category}")          
+                ]
+              }
+            }
 
-        parallel stepsForParallel
+            parallel stepsForParallel        
          }
-       }
-    }    
+      }
+    }
   }
 }
