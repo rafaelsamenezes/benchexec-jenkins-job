@@ -35,13 +35,13 @@ pipeline {
                   string(name: 'timeout', value: "${params.timeout}"),
                   string(name: 'category', value: "${category}")          
                 ]
+                echo "Job number ${job_result.getNumber()}"
                 jobs[i] = job_result.getNumber()
               }
             }
 
             parallel parallelJobs  
-
-             echo "Build of 'testJob' returned result: ${jobs[0]}"
+            println parallelJobs
          }
       }
     }
