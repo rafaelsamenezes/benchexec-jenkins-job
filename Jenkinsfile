@@ -21,31 +21,27 @@ pipeline {
        steps{
           script{
             String[] categories = ["MemSafety-Other", "MemSafety-MemCleanup"]
+            Integer[] jobs = [1,2,3]
             def parallelJobs = [:]
             def buildResults = [:]
             for (int i = 0; i < categories.size(); i++) {
               def category = categories[i]
               println "running ${category}"
               parallelJobs[category] = {           
-                buildResults[i] = build job: 'benchexec-jenkins-job/low-res', parameters: [
+                def job_result = build job: 'benchexec-jenkins-job/low-res', parameters: [
                   string(name: 'tool_url', value: "${params.tool_url}"),
                   string(name: 'benchmark_url', value: "${params.benchmark_url}"),
                   string(name: 'prepare_environment_url', value: "${params.prepare_environment_url}"),
                   string(name: 'timeout', value: "${params.timeout}"),
                   string(name: 'category', value: "${category}")          
                 ]
+                jobs[i] = job_result.getNumber()
               }
             }
 
             parallel parallelJobs  
 
-             def jobResult = buildResults[0].getResult()
-
-             echo "Build of 'testJob' returned result: ${jobResult}"
-
-             def artifacts = buildResults[0].getArtifacts()
-
-      
+             echo "Build of 'testJob' returned result: ${jobs[0]}"
          }
       }
     }
