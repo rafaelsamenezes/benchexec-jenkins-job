@@ -38,7 +38,13 @@ pipeline {
 
             parallel buildResults  
 
-            buildResults[0].dump()      
+            println "teste"
+
+             def jobResult = buildResults[0].getResult()
+
+             echo "Build of 'testJob' returned result: ${jobResult}"
+
+      
          }
       }
     }
