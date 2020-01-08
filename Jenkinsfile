@@ -42,7 +42,15 @@ pipeline {
 
             parallel parallelJobs  
          }
-         sh 'ls'
+      }
+    }
+    stage('Start Jobs') {
+      environment {
+        http_proxy = 'http://10.99.101.14:3128'
+        https_proxy = 'http://10.99.101.14:3128'
+      }
+       steps{
+          sh "ls"
       }
     }
   }
