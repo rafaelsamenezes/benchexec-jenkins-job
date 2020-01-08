@@ -19,7 +19,7 @@ pipeline {
         https_proxy = 'http://10.99.101.14:3128'
       }
       steps {   
-        build job: 'benchexec-jenkins-job/low-res', parameters: [$tool_url, $benchmark_url, $prepare_environment_url, "MemSafety-Other",$timeout]
+        build job: 'benchexec-jenkins-job/low-res', parameters: ['$tool_url', '$benchmark_url', '$prepare_environment_url', 'MemSafety-Other', '$timeout']
 	    }
     }    
   }
