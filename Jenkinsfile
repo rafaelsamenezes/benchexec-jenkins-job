@@ -42,7 +42,7 @@ pipeline {
           sh 'unzip output*.zip'
         }
 
-        zip(zipFile: 'benchexec.zip', archive: true, dir: './results')
+        zip(zipFile: 'benchexec-${category}.zip', archive: true, dir: './results')
         publishHTML([
                     allowMissing: false,
                     alwaysLinkToLastBuild: false,
