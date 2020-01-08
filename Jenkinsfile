@@ -19,10 +19,7 @@ pipeline {
         https_proxy = 'http://10.99.101.14:3128'
       }
       steps {   
-        sh 'wget $tool_url'
-        sh 'wget $benchmark_url -O tool-def.xml'
-        sh 'wget $prepare_environment_url -O prepare_environment.sh'
-        sh 'bash prepare_environment.sh'     
+        build job: 'benchexec-jenkins-job/low-res', parameters: []
 	    }
     }    
   }
