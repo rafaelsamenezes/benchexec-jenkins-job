@@ -2,7 +2,7 @@ mkdir results
 cp merge-results.xml results
 cd results
 
-_CATEGORIES=("MemSafety-Other" "MemSafety-MemCleanup")
+_CATEGORIES=("ReachSafety-Arrays" "ReachSafety-BitVectors" "ReachSafety-ControlFlow" "ReachSafety-Floats" "ReachSafety-Heap" "ReachSafety-Loops" "ReachSafety-ProductLines" "ReachSafety-Recursive" "ConcurrencySafety-Main" "MemSafety-Arrays" "MemSafety-Heap" "MemSafety-LinkedLists" "MemSafety-Other" "MemSafety-MemCleanup" "SoftwareSystems-BusyBox-MemSafety" "SoftwareSystems-OpenBSD-MemSafety" "NoOverflows-BitVectors" "Termination-MainHeap" "Termination-Other" "ReachSafety-ECA" "ReachSafety-Sequentialized" "SoftwareSystems-AWS-C-Common-ReachSafety" "SoftwareSystems-DeviceDriversLinux64-ReachSafety" "MemSafety-TerminCrafted")
 
 function prepare_files {
     CATEGORY="$1"
