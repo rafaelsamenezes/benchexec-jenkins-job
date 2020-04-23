@@ -43,7 +43,7 @@ pipeline {
             int i = 0
             for (; i < categories.size(); i++) {
               def category = categories[i]
-              def job_name = high_res.contains(category) ? "Benchexec sv-benchmarks/high-res" : "Benchexec sv-benchmarks/low-res"
+              def job_name = high_res.contains(category) ? "Benchexec sv-benchmarks/high-res" : "Benchexec sv-benchmarks/high-res"
               println "running ${category} in ${job_name}"
               parallelJobs[category] = {
 		retry(3) {
