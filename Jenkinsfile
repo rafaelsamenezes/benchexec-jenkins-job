@@ -1,8 +1,29 @@
 pipeline {
   agent {
     kubernetes {
-      label 'jnlp-benchexec-low'
-      defaultContainer 'jnlp2'
+      yaml """
+apiVersion: "v1"
+kind: "Pod"
+spec:
+  containers:
+    - name: "jnlp"
+      image: "rafaelsamenezes/esbmc-jnlp:benchexec"
+      imagePullPolicy: "Always"
+      resources:
+        limits:
+          memory: "70Gi"
+        requests:
+          memory: "70Gi"
+      volumeMounts:
+        - mountPath: "/sys/fs/cgroup"
+          name: "volume-0"
+          readOnly: false 
+          
+  volumes:
+    - hostPath:
+        path: "/sys/fs/cgroup"
+      name: "volume-0"
+"""
     }
 
   }
