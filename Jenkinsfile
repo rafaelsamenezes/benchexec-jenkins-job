@@ -43,10 +43,10 @@ pipeline {
             int i = 0
             for (; i < categories.size(); i++) {
               def category = categories[i]
-              def job_name = high_res.contains(category) ? "Benchexec sv-benchmarks/high-res" : "Benchexec sv-benchmarks/high-res"
+              def job_name = high_res.contains(category) ? "Benchexec sv-benchmarks/high-res" : "Benchexec sv-benchmarks/low-res"
               println "running ${category} in ${job_name}"
               parallelJobs[category] = {
-		retry(3) {
+		
                   def built = build job: "${job_name}", parameters: [
                     string(name: 'tool_url', value: "${params.tool_url}"),
                     string(name: 'benchmark_url', value: "${params.benchmark_url}"),
@@ -56,7 +56,7 @@ pipeline {
                   ]
                   copyArtifacts(projectName: "${job_name}", selector: specific("${built.number}"));
 		}
-              }
+              
             }
 
             parallel parallelJobs  
