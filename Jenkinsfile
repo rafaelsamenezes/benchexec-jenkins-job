@@ -2,7 +2,7 @@ pipeline {
   agent {
     kubernetes {
       label 'jnlp-benchexec-low'
-      defaultContainer 'jnlp'
+      defaultContainer 'jnlp2'
     }
 
   }
