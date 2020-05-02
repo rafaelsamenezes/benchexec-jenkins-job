@@ -27,7 +27,7 @@ spec:
         path: "/sys/fs/cgroup"
       name: "volume-0"
     - emptyDir:
-        medium: "Memory"
+        medium: ""
       name: "workspace-volume"
 """
     }
