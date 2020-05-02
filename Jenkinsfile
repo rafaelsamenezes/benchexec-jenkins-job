@@ -19,7 +19,7 @@ spec:
           name: "volume-0"
           readOnly: false
         - mountPath: "/home/jenkins/agent"
-            name: "workspace-volume"
+          name: "workspace-volume"
           readOnly: false
           
   volumes:
