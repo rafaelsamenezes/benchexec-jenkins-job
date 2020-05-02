@@ -1,11 +1,29 @@
 pipeline {
-	options {
-    disableConcurrentBuilds()
-  }
   agent {
     kubernetes {
-      label 'jnlp-benchexec-high'
-      defaultContainer 'jnlp'
+      yaml """
+apiVersion: "v1"
+kind: "Pod"
+spec:
+  containers:
+    - name: "jnlp"
+      image: "rafaelsamenezes/esbmc-jnlp:benchexec"
+      imagePullPolicy: "Always"
+      resources:
+        limits:
+          memory: "140Gi"
+        requests:
+          memory: "140Gi"
+      volumeMounts:
+        - mountPath: "/sys/fs/cgroup"
+          name: "volume-0"
+          readOnly: false 
+          
+  volumes:
+    - hostPath:
+        path: "/sys/fs/cgroup"
+      name: "volume-0"
+"""
     }
 
   }
