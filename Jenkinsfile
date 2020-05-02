@@ -17,12 +17,18 @@ spec:
       volumeMounts:
         - mountPath: "/sys/fs/cgroup"
           name: "volume-0"
-          readOnly: false 
+          readOnly: false
+	- mountPath: "/home/jenkins/agent"
+            name: "workspace-volume"
+          readOnly: false
           
   volumes:
     - hostPath:
         path: "/sys/fs/cgroup"
       name: "volume-0"
+    - emptyDir:
+        medium: "Memory"
+      name: "workspace-volume"
 """
     }
 
