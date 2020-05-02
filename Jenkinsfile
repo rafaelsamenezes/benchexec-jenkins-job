@@ -1,4 +1,7 @@
 pipeline {
+  options {
+    buildDiscarder(logRotator(daysToKeepStr: '7', numToKeepStr: '200', artifactNumToKeepStr: '200'))
+  }
   agent {
     kubernetes {
       yaml """
@@ -56,7 +59,7 @@ spec:
     stage('Execute benchexec') {
       steps {
         sh 'free -h'
-        sh 'sudo benchexec  ./tool-def.xml --timelimit $timeout --tasks $category --numOfThreads 9  --no-container --output output-tool.log'
+        sh 'sudo benchexec  ./tool-def.xml --timelimit $timeout --tasks $category --limitCores 4 --numOfThreads 8  --no-container --output output-tool.log'
       }
     }
     stage('Generate results') {
