@@ -21,28 +21,11 @@
     <result id="ReachSafety-ProductLines" filename="./ReachSafety-ProductLines/output-tool.logtool-*.xml"/>
     <result id="ReachSafety-Recursive" filename="./ReachSafety-Recursive/output-tool.logtool-*.xml"/>
     
-    <result id="MemSafety-Arrays" filename="./MemSafety-Arrays/output-tool.logtool-*.xml"/>
-    <result id="MemSafety-Heap" filename="./MemSafety-Heap/output-tool.logtool-*.xml"/>
-    <result id="MemSafety-LinkedLists" filename="./MemSafety-LinkedLists/output-tool.logtool-*.xml"/>
-    <result id="MemSafety-MemCleanup" filename="./MemSafety-MemCleanup/output-tool.logtool-*.xml"/>
-    <result id="MemSafety-Other" filename="./MemSafety-Other/output-tool.logtool-*.xml"/>
-    <result id="MemSafety-TerminCrafted" filename="./MemSafety-TerminCrafted/output-tool.logtool-*.xml"/>
-    
-    <result id="NoOverflows-BitVectors" filename="./NoOverflows-BitVectors/output-tool.logtool-*.xml"/>
-    <result id="NoOverflows-Other" filename="./NoOverflows-Other/output-tool.logtool-*.xml"/>
-    
     <result id="ReachSafety-ECA" filename="./ReachSafety-ECA/output-tool.logtool-*.xml"/>
     <result id="ReachSafety-Sequentialized" filename="./ReachSafety-Sequentialized/output-tool.logtool-*.xml"/>
     
     <result id="SoftwareSystems-AWS-C-Common-ReachSafety" filename="./SoftwareSystems-AWS-C-Common-ReachSafety/output-tool.logtool-*.xml"/>
     <result id="SoftwareSystems-DeviceDriversLinux64-ReachSafety" filename="./SoftwareSystems-DeviceDriversLinux64-ReachSafety/output-tool.logtool-*.xml"/>
-    <result id="SoftwareSystems-BusyBox-MemSafety" filename="./SoftwareSystems-BusyBox-MemSafety/output-tool.logtool-*.xml"/>
-    <result id="SoftwareSystems-BusyBox-NoOverflows" filename="./SoftwareSystems-BusyBox-NoOverflows/output-tool.logtool-*.xml"/>
-    <result id="SoftwareSystems-OpenBSD-MemSafety" filename="./SoftwareSystems-OpenBSD-MemSafety/output-tool.logtool-*.xml"/>
-    
-    <result id="Termination-MainControlFlow" filename="./Termination-MainControlFlow/output-tool.logtool-*.xml"/>
-    <result id="Termination-MainHeap" filename="./Termination-MainHeap/output-tool.logtool-*.xml"/>
-    <result id="Termination-Other" filename="./Termination-Other/output-tool.logtool-*.xml"/>
   </union>
 
 </table>

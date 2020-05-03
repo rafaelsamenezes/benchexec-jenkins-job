@@ -30,20 +30,14 @@ spec:
             String[] categories = [
               "ReachSafety-Arrays", "ReachSafety-BitVectors", "ReachSafety-ControlFlow", 
               "ReachSafety-Floats", "ReachSafety-Heap", "ReachSafety-Loops", "ReachSafety-ProductLines",
-              "ReachSafety-Recursive", "ConcurrencySafety-Main", "MemSafety-Arrays", 
-              "MemSafety-Heap", "MemSafety-LinkedLists", "MemSafety-Other", "MemSafety-MemCleanup", 
-              "SoftwareSystems-BusyBox-MemSafety", "SoftwareSystems-OpenBSD-MemSafety", "NoOverflows-BitVectors",
-              "NoOverflows-Other", "SoftwareSystems-BusyBox-NoOverflows", "Termination-MainControlFlow", 
-              "Termination-MainHeap", "Termination-Other", "ReachSafety-ECA", "ReachSafety-Sequentialized",
-              "SoftwareSystems-AWS-C-Common-ReachSafety", "SoftwareSystems-DeviceDriversLinux64-ReachSafety",
-              "MemSafety-TerminCrafted"
+              "ReachSafety-Recursive", "ReachSafety-ECA", "ReachSafety-Sequentialized",
+              "SoftwareSystems-AWS-C-Common-ReachSafety", "SoftwareSystems-DeviceDriversLinux64-ReachSafety"
             ]
             String[] high_res = [
               "ReachSafety-ECA",
               "ReachSafety-Sequentialized",
               "SoftwareSystems-AWS-C-Common-ReachSafety",
-              "SoftwareSystems-DeviceDriversLinux64-ReachSafety",
-              "MemSafety-TerminCrafted"
+              "SoftwareSystems-DeviceDriversLinux64-ReachSafety"
             ]
 
             def parallelJobs = [:]
