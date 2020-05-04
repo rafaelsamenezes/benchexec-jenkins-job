@@ -15,7 +15,7 @@ spec:
   }
   parameters {
     string(name: 'tool_url', defaultValue: 'https://gitlab.com/sosy-lab/sv-comp/archives-2020/raw/master/2020/esbmc.zip', description: 'Download link for the tool')
-    string(name: 'benchmark_url', defaultValue: 'https://raw.githubusercontent.com/rafaelsamenezes/competition-definitions/master/esbmc-def.xml', description: 'Download link for benchmark (will be name tool-def.xml')
+    string(name: 'benchmark_url', defaultValue: 'https://raw.githubusercontent.com/rafaelsamenezes/competition-definitions/master/esbmc-falsi-.xml', description: 'Download link for benchmark (will be name tool-def.xml')
 	  string(name: 'prepare_environment_url', defaultValue: 'https://pastebin.com/raw/AidKFUx9', description: 'Commands to be executed before running benchexec')    
 	  string(name: 'timeout', defaultValue: '60', description: 'Timeout to be used (in seconds)')
   }
@@ -29,14 +29,10 @@ spec:
           script{
             String[] categories = [
               "ReachSafety-Arrays", "ReachSafety-BitVectors", "ReachSafety-ControlFlow", 
-              "ReachSafety-Floats", "ReachSafety-Heap", "ReachSafety-Loops", "ReachSafety-ProductLines",
-              "ReachSafety-Recursive", "ConcurrencySafety-Main", "MemSafety-Arrays", 
-              "MemSafety-Heap", "MemSafety-LinkedLists", "MemSafety-Other", "MemSafety-MemCleanup", 
-              "SoftwareSystems-BusyBox-MemSafety", "SoftwareSystems-OpenBSD-MemSafety", "NoOverflows-BitVectors",
-              "NoOverflows-Other", "SoftwareSystems-BusyBox-NoOverflows", "Termination-MainControlFlow", 
-              "Termination-MainHeap", "Termination-Other", "ReachSafety-ECA", "ReachSafety-Sequentialized",
-              "SoftwareSystems-AWS-C-Common-ReachSafety", "SoftwareSystems-DeviceDriversLinux64-ReachSafety",
-              "MemSafety-TerminCrafted"
+              "ReachSafety-ECA", "ReachSafety-Floats", "ReachSafety-Heap", "ReachSafety-Loops", 
+              "ReachSafety-Recursive", "ReachSafety-Sequentialized", "SoftwareSystems-BusyBox-MemSafety", 
+              "SoftwareSystems-DeviceDriversLinux64-ReachSafety", "SoftwareSystems-SQLite-MemSafety",
+              "Termination-MainHeap"
             ]
             String[] high_res = [
               "ReachSafety-ECA",
