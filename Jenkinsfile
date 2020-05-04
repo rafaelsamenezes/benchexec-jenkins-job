@@ -15,7 +15,7 @@ spec:
   }
   parameters {
     string(name: 'tool_url', defaultValue: 'https://gitlab.com/sosy-lab/sv-comp/archives-2020/raw/master/2020/esbmc.zip', description: 'Download link for the tool')
-    string(name: 'benchmark_url', defaultValue: 'https://raw.githubusercontent.com/rafaelsamenezes/competition-definitions/master/esbmc-falsi-.xml', description: 'Download link for benchmark (will be name tool-def.xml')
+    string(name: 'benchmark_url', defaultValue: 'https://raw.githubusercontent.com/rafaelsamenezes/competition-definitions/master/esbmc-falsi.xml', description: 'Download link for benchmark (will be name tool-def.xml')
 	  string(name: 'prepare_environment_url', defaultValue: 'https://pastebin.com/raw/AidKFUx9', description: 'Commands to be executed before running benchexec')    
 	  string(name: 'timeout', defaultValue: '60', description: 'Timeout to be used (in seconds)')
   }
