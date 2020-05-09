@@ -11,7 +11,6 @@ spec:
   containers:
     - name: "jnlp"
       image: "rafaelsamenezes/esbmc-jnlp:benchexec"
-      imagePullPolicy: "Always"
       resources:
         limits:
           memory: "140Gi"
