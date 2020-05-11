@@ -6,6 +6,11 @@ apiVersion: "v1"
 kind: "Pod"
 spec:
   containers:
+    - env:
+      - name: "http_proxy"
+        value: "http://10.99.101.14:3128"
+      - name: "https_proxy"
+        value: "http://10.99.101.14:3128"
     - name: "jnlp"
       image: "rafaelsamenezes/esbmc-jnlp:benchexec"
       imagePullPolicy: "Always"
