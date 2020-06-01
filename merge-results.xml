@@ -12,22 +12,21 @@
   </result>
 
   <union>
-    <result id="ReachSafety-Arrays" filename="./ReachSafety-Arrays/output-tool.logtool-*.xml"/>
-    <result id="ReachSafety-BitVectors" filename="./ReachSafety-BitVectors/output-tool.logtool-*.xml"/>
-    <result id="ReachSafety-ControlFlow" filename="./ReachSafety-ControlFlow/output-tool.logtool-*.xml"/>
-    <result id="ReachSafety-Floats" filename="./ReachSafety-Floats/output-tool.logtool-*.xml"/>
-    <result id="ReachSafety-Heap" filename="./ReachSafety-Heap/output-tool.logtool-*.xml"/>
-    <result id="ReachSafety-Loops" filename="./ReachSafety-Loops/output-tool.logtool-*.xml"/>
-    <result id="ReachSafety-Recursive" filename="./ReachSafety-Recursive/output-tool.logtool-*.xml"/>
-    <result id="ReachSafety-ECA" filename="./ReachSafety-ECA/output-tool.logtool-*.xml"/>
-    <result id="ReachSafety-Sequentialized" filename="./ReachSafety-Sequentialized/output-tool.logtool-*.xml"/>
+    <result id="ReachSafety-Arrays" filename="./ReachSafety-Arrays/*.xml"/>
+    <result id="ReachSafety-BitVectors" filename="./ReachSafety-BitVectors/*.xml"/>
+    <result id="ReachSafety-ControlFlow" filename="./ReachSafety-ControlFlow/*.xml"/>
+    <result id="ReachSafety-Floats" filename="./ReachSafety-Floats/*.xml"/>
+    <result id="ReachSafety-Heap" filename="./ReachSafety-Heap/*.xml"/>
+    <result id="ReachSafety-Loops" filename="./ReachSafety-Loops/*.xml"/>
+    <result id="ReachSafety-Recursive" filename="./ReachSafety-Recursive/*.xml"/>
+    <result id="ReachSafety-Sequentialized" filename="./ReachSafety-Sequentialized/*.xml"/>
     
-    <result id="SoftwareSystems-DeviceDriversLinux64-ReachSafety" filename="./SoftwareSystems-DeviceDriversLinux64-ReachSafety/output-tool.logtool-*.xml"/>
-    <result id="SoftwareSystems-BusyBox-MemSafety" filename="./SoftwareSystems-BusyBox-MemSafety/output-tool.logtool-*.xml"/>
+    <result id="SoftwareSystems-DeviceDriversLinux64-ReachSafety" filename="./SoftwareSystems-DeviceDriversLinux64-ReachSafety/*.xml"/>
+    <result id="SoftwareSystems-BusyBox-MemSafety" filename="./SoftwareSystems-BusyBox-MemSafety/*.xml"/>
     
-    <result id="Termination-MainHeap" filename="./Termination-MainHeap/output-tool.logtool-*.xml"/>
+    <result id="Termination-MainHeap" filename="./Termination-MainHeap/*.xml"/>
 
-    <result id="SoftwareSystems-SQLite-MemSafety" filename="./SoftwareSystems-SQLite-MemSafety/output-tool.logtool-*.xml"/>
+    <result id="SoftwareSystems-SQLite-MemSafety" filename="./SoftwareSystems-SQLite-MemSafety/*.xml"/>
   </union>
 
 </table>

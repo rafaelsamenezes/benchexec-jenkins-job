@@ -29,13 +29,12 @@ spec:
           script{
             String[] categories = [
               "ReachSafety-Arrays", "ReachSafety-BitVectors", "ReachSafety-ControlFlow", 
-              "ReachSafety-ECA", "ReachSafety-Floats", "ReachSafety-Heap", "ReachSafety-Loops", 
+              "ReachSafety-Floats", "ReachSafety-Heap", "ReachSafety-Loops", 
               "ReachSafety-Recursive", "ReachSafety-Sequentialized", "SoftwareSystems-BusyBox-MemSafety", 
               "SoftwareSystems-DeviceDriversLinux64-ReachSafety", "SoftwareSystems-SQLite-MemSafety",
               "Termination-MainHeap"
             ]
             String[] high_res = [
-              "ReachSafety-ECA",
               "ReachSafety-Sequentialized",
               "SoftwareSystems-AWS-C-Common-ReachSafety",
               "SoftwareSystems-DeviceDriversLinux64-ReachSafety",
