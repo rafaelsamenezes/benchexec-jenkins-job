@@ -46,7 +46,7 @@ spec:
             int i = 0
             for (; i < categories.size(); i++) {
               def category = categories[i]
-              def job_name = high_res.contains(category) ? "Benchexec sv-benchmarks/high-res" : "Benchexec sv-benchmarks/high-res"
+              def job_name = high_res.contains(category) ? "Benchexec sv-benchmarks/testcov-run" : "Benchexec sv-benchmarks/testcov-run"
               println "running ${category} in ${job_name}"
               parallelJobs[category] = {
 		

@@ -6,6 +6,8 @@
     <!-- <column> can be used here to override the global set of columns.  -->
     <column title="status"/>
     <column title="cputime" displayTitle="CPU Time"/>
+    <column title="branches_covered" displayTitle="Branchs Covered (%)"/>
+    <column title="branches_total" displayTitle="Branchs Total"/>
     <column title="memory" displayTitle="Memory" sourceUnit="B" displayUnit="MB"/>
   </result>
 
