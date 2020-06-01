@@ -67,7 +67,7 @@ spec:
     stage('Execute benchexec (Tool)') {
       steps {
         sh 'cd /tool ; sudo benchexec  ./tool-def.xml --timelimit $timeout --tasks $category --limitCores 3 --numOfThreads 8 --full-access-dir / --hidden-dir /home --hidden-dir /result-verified'
-        sh 'cd /tool; sudo cp -r results/*.files/* /results-verified'
+        sh 'cd /tool; sudo cp -r results/*.files/* /results-verified 2> /dev/null || : '
       }
     }
     stage('Execute benchexec (Testcov)') {
@@ -82,7 +82,7 @@ spec:
         sh 'sudo table-generator /verified/testcov/results/*.xml.bz2'
         sh 'mkdir results'
         sh 'sudo cp -r /verified/testcov/results/* results'
-        sh 'sudo cp -r /tool/results/*.files/* results'
+        sh 'sudo cp -r /tool/results/*.files/* results 2> /dev/null || : '
         
 
         zip(zipFile: "benchexec-${params.category}.zip", archive: true, dir: './results')
