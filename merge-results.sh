@@ -2,7 +2,7 @@ mkdir results
 cp merge-results.xml results
 cd results
 
-_CATEGORIES=("ReachSafety-Arrays" "ReachSafety-BitVectors" "ReachSafety-ControlFlow" "ReachSafety-Floats" "ReachSafety-Heap" "ReachSafety-Loops" "ReachSafety-Recursive" "SoftwareSystems-BusyBox-MemSafety" "Termination-MainHeap" "ReachSafety-Sequentialized" "SoftwareSystems-DeviceDriversLinux64-ReachSafety" "SoftwareSystems-SQLite-MemSafety")
+_CATEGORIES=("ReachSafety-ECA" "ReachSafety-Arrays" "ReachSafety-BitVectors" "ReachSafety-ControlFlow" "ReachSafety-Floats" "ReachSafety-Heap" "ReachSafety-Loops" "ReachSafety-Recursive" "SoftwareSystems-BusyBox-MemSafety" "Termination-MainHeap" "ReachSafety-Sequentialized" "SoftwareSystems-DeviceDriversLinux64-ReachSafety" "SoftwareSystems-SQLite-MemSafety")
 
 function prepare_files {
     CATEGORY="$1"
