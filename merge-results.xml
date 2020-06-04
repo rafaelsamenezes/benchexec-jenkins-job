@@ -19,6 +19,7 @@
     <result id="ReachSafety-Heap" filename="./ReachSafety-Heap/*.xml"/>
     <result id="ReachSafety-Loops" filename="./ReachSafety-Loops/*.xml"/>
     <result id="ReachSafety-Recursive" filename="./ReachSafety-Recursive/*.xml"/>
+    <result id="ReachSafety-ECA" filename="./ReachSafety-ECA/*.xml"/>
     <result id="ReachSafety-Sequentialized" filename="./ReachSafety-Sequentialized/*.xml"/>
     
     <result id="SoftwareSystems-DeviceDriversLinux64-ReachSafety" filename="./SoftwareSystems-DeviceDriversLinux64-ReachSafety/*.xml"/>
