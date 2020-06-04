@@ -29,7 +29,7 @@ spec:
           script{
             String[] categories = [
               "ReachSafety-Arrays", "ReachSafety-BitVectors", "ReachSafety-ControlFlow", 
-              "ReachSafety-Floats", "ReachSafety-Heap", "ReachSafety-Loops",  "ReachSafety-ECA"
+              "ReachSafety-Floats", "ReachSafety-Heap", "ReachSafety-Loops",  "ReachSafety-ECA",
               "ReachSafety-Recursive", "ReachSafety-Sequentialized", "SoftwareSystems-BusyBox-MemSafety", 
               "SoftwareSystems-DeviceDriversLinux64-ReachSafety", "SoftwareSystems-SQLite-MemSafety",
               "Termination-MainHeap"
