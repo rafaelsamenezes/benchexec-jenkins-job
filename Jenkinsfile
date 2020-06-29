@@ -1,6 +1,6 @@
 pipeline {
   options {
-    buildDiscarder(logRotator(daysToKeepStr: '7', numToKeepStr: '200', artifactNumToKeepStr: '200'))
+    buildDiscarder(logRotator(daysToKeepStr: '4', numToKeepStr: '50', artifactNumToKeepStr: '50'))
   }
   agent {
     kubernetes {
