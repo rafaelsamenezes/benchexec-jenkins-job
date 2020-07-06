@@ -39,8 +39,6 @@ spec:
   }
   parameters {
     string(name: 'tool_url', defaultValue: 'https://www.dropbox.com/s/jwwmyw5q4ahpzjg/fusebmc.tar.gz', description: 'Download link for the tool')
-    string(name: 'benchmark_url', defaultValue: 'https://raw.githubusercontent.com/rafaelsamenezes/competition-definitions/master/esbmc-falsi.xml', description: 'Download link for benchmark (will be name tool-def.xml')
-	  string(name: 'prepare_environment_url', defaultValue: 'https://pastebin.com/raw/zLA7KR3m', description: 'Commands to be executed before running benchexec')
     string(name: 'category', defaultValue: 'ReachSafety-Heap', description: 'Category to be executed')
 	  string(name: 'timeout', defaultValue: '10', description: 'Timeout to be used (in seconds)')
   }
