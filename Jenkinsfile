@@ -51,7 +51,7 @@ spec:
       steps {   
         sh 'sudo -H -E pip3 install numpy'
         sh 'wget $tool_url -O tool.zip'
-        sh 'uzip tool.zip'
+        sh 'unzip tool.zip'
         sh 'wget https://raw.githubusercontent.com/rafaelsamenezes/competition-definitions/master/esbmc-falsi.xml'
         sh 'wget https://raw.githubusercontent.com/rafaelsamenezes/competition-definitions/master/testcov.xml'
 	  }
