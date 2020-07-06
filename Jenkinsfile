@@ -51,40 +51,30 @@ spec:
         https_proxy = 'http://10.99.101.14:3128'
       }
       steps {   
-        sh "sudo mkdir /tool && sudo mkdir /results-verified && sudo mkdir /result-verified"
         sh 'sudo -H -E pip3 install numpy'
-        sh 'cd /tool ; sudo -E wget $tool_url'
-        sh 'cd /tool ; sudo -E wget $benchmark_url -O tool-def.xml'
-        sh 'cd /tool ; sudo -E wget $prepare_environment_url -O prepare_environment.sh'
-        sh 'cd /tool ; sudo -E bash prepare_environment.sh'
-        
-        sh 'sudo mkdir /verified'
-        sh 'cd /verified ; sudo -E wget https://www.dropbox.com/s/8p1re7tgoe15ksm/val_testcov.zip'
-        sh 'cd /verified ; sudo unzip val_testcov.zip'
-        sh 'cd /verified/testcov ; sudo -E wget https://raw.githubusercontent.com/rafaelsamenezes/competition-definitions/master/testcov.xml'
+        sh 'wget $tool_url -O tool.zip'
+        sh 'uzip tool.zip'
+        sh 'wget https://raw.githubusercontent.com/rafaelsamenezes/competition-definitions/master/esbmc-falsi.xml'
+        sh 'wget https://raw.githubusercontent.com/rafaelsamenezes/competition-definitions/master/testcov.xml'
 	  }
     }
     stage('Execute benchexec (Tool)') {
       steps {
-        sh 'cd /tool ; sudo benchexec  ./tool-def.xml --timelimit $timeout --tasks $category --limitCores 3 --numOfThreads 8 --full-access-dir / --hidden-dir /home --hidden-dir /result-verified'
-        sh 'cd /tool; sudo cp -r results/*.files/* /results-verified 2> /dev/null || : '
+        sh 'sudo benchexec  ./tool-def.xml --timelimit $timeout --tasks $category --limitCores 3 --numOfThreads 8 --no-container --full-access-dir / --hidden-dir /home --hidden-dir  ./results-verified -d --no-compress-results' 
       }
     }
     stage('Execute benchexec (Testcov)') {
       steps {
-          sh 'cd /verified/testcov ; sudo benchexec  ./testcov.xml --tasks $category --limitCores 1 --numOfThreads 10 --read-only-dir / --full-access-dir $PWD --hidden-dir /home --full-access-dir /sys/fs/cgroup'
-          sh 'cd /verified/testcov ; ls results'
+          sh 'sudo benchexec  ./testcov.xml --tasks $category --limitCores 1 --numOfThreads 10 --no-container --full-access-dir / --hidden-dir /home --hidden-dir  ./results-verified -d --no-compress-results'
       }
     }
     stage('Generate results') {
       steps {
         sh 'ls'
-        sh 'sudo table-generator /verified/testcov/results/*.xml.bz2'
+        sh 'table-generator output*.xml.bz2'
         sh 'mkdir results'
-        sh 'sudo cp -r /verified/testcov/results/* results'
-        sh 'sudo cp -r /tool/results/*.files/* results 2> /dev/null || : '
+        sh 'cp -r output* results'
         
-
         zip(zipFile: "benchexec-${params.category}.zip", archive: true, dir: './results')
         publishHTML([
                     allowMissing: false,
