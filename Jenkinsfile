@@ -52,7 +52,6 @@ spec:
         sh 'sudo -H -E pip3 install numpy'
         sh 'wget $tool_url -O tool.zip'
         sh 'unzip tool.zip'
-	sh 'cp -r /data/sv-benchmarks ./sv-benchmarks'
         sh 'wget https://raw.githubusercontent.com/rafaelsamenezes/competition-definitions/master/esbmc-falsi.xml -O tool-def.xml'
         sh 'wget https://raw.githubusercontent.com/rafaelsamenezes/competition-definitions/master/testcov.xml'
 	  }
