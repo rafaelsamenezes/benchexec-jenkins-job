@@ -45,14 +45,12 @@ spec:
             int i = 0
             for (; i < categories.size(); i++) {
               def category = categories[i]
-              def job_name = high_res.contains(category) ? "Benchexec sv-benchmarks/testcov-run" : "Benchexec sv-benchmarks/testcov-run"
+              def job_name = high_res.contains(category) ? "benchexec-jenkins-job/testcov-run" : "benchexec-jenkins-job/testcov-run"
               println "running ${category} in ${job_name}"
               parallelJobs[category] = {
 		
                   def built = build job: "${job_name}", parameters: [
                     string(name: 'tool_url', value: "${params.tool_url}"),
-                    string(name: 'benchmark_url', value: "${params.benchmark_url}"),
-                    string(name: 'prepare_environment_url', value: "${params.prepare_environment_url}"),
                     string(name: 'timeout', value: "${params.timeout}"),
                     string(name: 'category', value: "${category}")          
                   ]
