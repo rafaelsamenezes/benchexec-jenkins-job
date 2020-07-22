@@ -63,7 +63,7 @@ spec:
     }
     stage('Execute benchexec (Testcov)') {
       steps {
-          sh 'sudo benchexec  ./testcov.xml --tasks $category --limitCores 1 --numOfThreads 11 --no-container --full-access-dir / --hidden-dir /home --hidden-dir  ./results-verified --no-compress-results'
+          sh 'sudo benchexec  ./testcov.xml --tasks $category --limitCores 1 --numOfThreads 1 --no-container --full-access-dir / --hidden-dir /home --hidden-dir  ./results-verified --no-compress-results'
       }
     }
     stage('Generate results') {
