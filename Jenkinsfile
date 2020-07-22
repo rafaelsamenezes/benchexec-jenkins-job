@@ -69,7 +69,7 @@ spec:
     stage('Generate results') {
       steps {
         sh 'ls'
-        sh 'sudo -r results-verified/ results/'
+        sh 'sudo results-verified/ results/'
         zip(zipFile: "benchexec-${params.category}.zip", archive: true, dir: './results')
         publishHTML([
                     allowMissing: false,
