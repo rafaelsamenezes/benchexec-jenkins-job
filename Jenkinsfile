@@ -38,9 +38,9 @@ spec:
 
   }
   parameters {
-    string(name: 'tool_url', defaultValue: 'https://www.dropbox.com/s/jwwmyw5q4ahpzjg/fusebmc.tar.gz', description: 'Download link for the tool')
-    string(name: 'category', defaultValue: 'ReachSafety-Heap', description: 'Category to be executed')
-	  string(name: 'timeout', defaultValue: '10', description: 'Timeout to be used (in seconds)')
+    string(name: 'tool_url', defaultValue: 'https://www.dropbox.com/s/3kg0o3oun98ib4s/Archive.zip', description: 'Download link for the tool')
+    string(name: 'category', defaultValue: 'ReachSafety-BitVectors', description: 'Category to be executed')
+	  string(name: 'timeout', defaultValue: '900', description: 'Timeout to be used (in seconds)')
   }
   stages {
     stage('Download Files') {
