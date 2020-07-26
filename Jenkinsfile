@@ -38,7 +38,7 @@ spec:
 
   }
   parameters {
-    string(name: 'tool_url', defaultValue: 'https://www.dropbox.com/s/3kg0o3oun98ib4s/Archive.zip', description: 'Download link for the tool')
+    string(name: 'tool_url', defaultValue: 'https://www.dropbox.com/s/0umw2u3578pff8x/FuSeBMC-k-1.zip', description: 'Download link for the tool')
     string(name: 'category', defaultValue: 'ReachSafety-BitVectors', description: 'Category to be executed')
 	  string(name: 'timeout', defaultValue: '900', description: 'Timeout to be used (in seconds)')
   }
