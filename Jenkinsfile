@@ -49,7 +49,7 @@ spec:
         https_proxy = 'http://10.99.101.14:3128'
       }
       steps {   
-	sh 'echo 'Acquire::http::proxy "http://10.99.101.14:3128";'  | sudo tee -a /etc/apt/apt.conf.d/01proxy ; echo 'Acquire::https::proxy "http://10.99.101.14:3128";'  | sudo tee -a /etc/apt/apt.conf.d/01proxy ; sudo apt update ; sudo apt install -y gcc-multilib build-essentia'
+	sh 'echo \'Acquire::http::proxy "http://10.99.101.14:3128";\'  | sudo tee -a /etc/apt/apt.conf.d/01proxy ; echo \'Acquire::https::proxy "http://10.99.101.14:3128";\'  | sudo tee -a /etc/apt/apt.conf.d/01proxy ; sudo apt update ; sudo apt install -y gcc-multilib build-essentia'
         sh 'sudo -H -E pip3 install numpy'
         sh 'wget $tool_url -O tool.zip'
         sh 'unzip tool.zip'
