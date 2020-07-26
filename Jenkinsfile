@@ -38,7 +38,7 @@ spec:
 
   }
   parameters {
-    string(name: 'tool_url', defaultValue: 'https://www.dropbox.com/s/0umw2u3578pff8x/FuSeBMC-k-1.zip', description: 'Download link for the tool')
+    string(name: 'tool_url', defaultValue: 'https://www.dropbox.com/s/19823kk8e5juet2/FuSeBMC-k-20.zip', description: 'Download link for the tool')
     string(name: 'category', defaultValue: 'ReachSafety-BitVectors', description: 'Category to be executed')
 	  string(name: 'timeout', defaultValue: '900', description: 'Timeout to be used (in seconds)')
   }
@@ -64,7 +64,7 @@ spec:
     }
     stage('Execute benchexec (Testcov)') {
       steps {
-          sh 'sudo benchexec  ./testcov.xml --tasks $category --limitCores 1 --numOfThreads 1 --no-container --full-access-dir / --hidden-dir /home --hidden-dir  ./results-verified --no-compress-results'
+          sh 'sudo benchexec  ./testcov.xml --tasks $category --limitCores 1 --numOfThreads 1 --no-container --no-compress-results'
       }
     }
     stage('Generate results') {
